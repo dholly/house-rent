@@ -1,0 +1,728 @@
+@import './layouts/def_styles.scss';
+@import './layouts/fonts.scss';
+@import './layouts/style-icomoon.scss';
+@import './layouts/null.scss';
+
+$desktop: 1200px;
+$laptop: 1024px;
+$tablet: 768px;
+$mobile: 575px;
+
+@function num($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@mixin resp-font($start, $finish, $startvp , $finishvp) {
+  font-size: calc(
+          #{$finish} +
+          #{num($start) - num($finish)} *
+          (100vw - #{$finishvp}) /
+          #{num($startvp) - num($finishvp)}
+  );
+}
+
+@mixin resp-property($property,$start, $finish, $startvp, $finishvp) {
+  #{$property}: calc(
+          #{$finish} +
+          #{num($start) - num($finish)} *
+          (100vw - #{$finishvp}) /
+          #{num($startvp) - num($finishvp)}
+  );
+}
+
+@mixin respond($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content
+  }
+}
+
+$main-color: #e4a349;
+$secondary-color: #00cecb;
+$light-color: #f5f6f6;
+$dark-color: #272838;
+$icon-color: #09658c;
+
+body {
+  font-family: 'SFProDisplay', sans-serif;
+  box-sizing: border-box;
+}
+
+a {
+  transition: 0.3s;
+
+  &:hover {
+    color: $secondary-color;
+    transition: 0.3s;
+  }
+
+}
+
+
+.footer {
+  font-size: 20px;
+  background: black;
+  color: $light-color;
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+  &-wrap {
+    display: flex;
+
+    justify-content: space-between;
+    padding-left: .5em;
+    padding-right: .5em;
+    @include respond($laptop){
+      flex-direction: column;
+      justify-content: center;
+
+      align-items: center;
+      text-align: center;
+    }
+    & > div {
+      width: 30%;
+    }
+  }
+
+  &__icons {
+    &-socials {
+      display: flex;
+      font-size: 60px;
+
+      gap: 1.5em;
+      @include respond($laptop){
+
+        justify-content: center;
+
+        align-items: center;
+        text-align: center;
+      }
+
+    }
+
+    &-contacts {
+      display: flex;
+      flex-direction: column;
+      font-size: 20px;
+      gap: 1em;
+
+    }
+  }
+
+  &-logo {
+    display: flex;
+    flex: 0 0 50%;
+    padding-left: 1em;
+    justify-content: center;
+    padding-bottom: 1.5em;
+
+    img {
+      display: block;
+      width: 200px;
+    }
+  }
+
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+
+    &-title {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+  }
+
+  &-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+
+    }
+
+    &-title {
+      font-size: 24px;
+      font-weight: 700;
+    }
+  }
+
+  &-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    &-title {
+      font-size: 24px;
+      font-weight: 700;
+    }
+  }
+}
+
+.underfooter {
+  padding-top: 3em;
+  padding-bottom: 3em;
+  background-image: url("../images/underfooter-bg.webp");
+  background-color: rgb(1, 1, 1, 0.4);
+  background-blend-mode: darken;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: $light-color;
+
+  &-wrap {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1em;
+    padding-right: 1em;
+
+    & > div {
+      width: 30%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 5px;
+      padding: 1em;
+      border: 0px solid transparent;
+      border-radius: 10px;
+      backdrop-filter: blur(1px) brightness(80%);
+      box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3);
+      cursor: default;
+      /* &:hover {
+         backdrop-filter: blur(3px) brightness(60%);
+       }*/
+    }
+  }
+
+  &-icon {
+    font-size: 50px;
+  }
+
+  &-title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &-text {
+    font-size: 18px;
+  }
+}
+
+.howitworks {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+
+  &-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: .5em;
+    padding-right: .5em;
+
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+    width: 50%;
+    margin-bottom: 3em;
+    @include respond($laptop) {
+      width: 100%;
+    }
+    &-title {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    &-text {
+      font-size: 16px;
+
+    }
+  }
+
+  &-content {
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    //width: 33%;
+
+    &-wrap {
+      display: flex;
+      //flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+      @include respond($laptop){
+        flex-direction: column;
+      }
+
+    }
+
+    &-image {
+      img {
+        width: 100px;
+      }
+    }
+
+    &-title {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    &-text {
+      font-size: 20px;
+
+    }
+  }
+}
+
+.header {
+  border-bottom: 1px solid rgb(255 255 255 / 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  transform: translate(0px, 0px);
+  transition: 0.3s;
+
+  &.slide {
+    transform: translate(0px, -260px);
+    transition: 0.3s;
+  }
+
+  &.scrolled {
+    transform: translate(0px, 0px);
+    transition: 0.3s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    background-color: #101010;
+    color: $light-color;
+  }
+
+  // background-color: black;
+  &-logophone {
+    &-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1.5em;
+      margin-right: auto;
+      @include respond($mobile){
+        margin-right: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  &-wrap {
+    display: flex;
+    align-items: center;
+    height: 90px;
+
+    padding-left: .5em;
+    padding-right: .5em;
+  }
+
+  &-menu {
+    @include respond($mobile) {
+      position: relative;
+    }
+
+    &-links {
+      display: flex;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 200;
+      color: $light-color;
+      align-items: center;
+      @include respond($tablet) {
+        font-size: 16px;
+      }
+      @include respond($mobile) {
+        display: none;
+      }
+
+      &.active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 90px;
+        right: 0;
+        background: $secondary-color;
+        z-index: 11;
+
+      }
+    }
+  }
+
+  &-phone {
+
+    @include respond($mobile){
+      margin-left: auto;
+    }
+    a {
+      color: $secondary-color;
+      transition: .3s;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      @include respond($tablet) {
+        font-size: 18px;
+      }
+
+    }
+    span{
+      @include respond($mobile){
+        display: none;
+      }
+    }
+
+    :hover {
+      color: $light-color;
+      transform: translatey(-1px);
+      transition: .3s;
+    }
+
+    :before {
+      padding-right: 10px;
+      font-size: 40px;
+      @include respond($tablet) {
+        font-size: 34px;
+      }
+
+    }
+
+  }
+
+  &-logo {
+    img {
+
+      width: 120px;
+    }
+  }
+}
+
+.headermedia {
+  background-image: url("../images/underfooter-bg.webp");
+  //height: calc(100vh);
+  //margin-top: -91px;
+  //padding-top: 91px;
+  background-color: rgb(1, 1, 1, 0.4);
+  background-blend-mode: darken;
+
+
+  .scrolled {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+
+  &-preview {
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    text-align: center;
+    gap: 1.5em;
+
+    //height: 25%;
+    padding: 2em;
+    color: $light-color;
+    backdrop-filter: blur(2px) brightness(60%);
+    cursor: default;
+    border: 0px solid transparent;
+    border-radius: 8px;
+    box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3);
+
+    &-wrap {
+      display: flex;
+      align-items: flex-start;
+      width: 40%;
+      padding-top: 5%;
+      padding-left: 5%;
+      @include respond($tablet) {
+        width: 100%;
+        padding-right: 5%;
+      }
+    }
+  }
+
+  &-info {
+    &-wrap {
+
+      padding-top: 91px;
+      display: flex;
+
+      //flex-direction: column;
+      @include respond($tablet) {
+        flex-direction: column;
+      }
+
+    }
+  }
+
+  &-form {
+    @include respond($tablet) {
+      width: 100%;
+    }
+
+    &-wrap {
+      display: flex;
+      align-items: flex-end;
+      margin-left: auto;
+      padding-top: 15%;
+      padding-right: 15%;
+      padding-bottom: 5%;
+      @include respond($laptop) {
+        padding-right: 5%;
+      }
+      @include respond($tablet) {
+        padding-left: 5%;
+        margin-left: 0;
+      }
+    }
+  }
+
+  &-title {
+    font-size: 30px;
+    @include respond($laptop) {
+      font-size: 26px;
+    }
+    @include respond($mobile) {
+      font-size: 20px;
+    }
+  }
+
+  &-text {
+    font-size: 40px;
+    font-weight: 800;
+    @include respond($laptop) {
+      font-size: 32px;
+    }
+    @include respond($mobile) {
+      font-size: 26px;
+    }
+  }
+}
+
+.contactform {
+
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  background: $light-color;
+  align-items: center;
+  padding: 30px;
+  border: 0px solid transparent;
+  border-radius: 8px;
+  box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3);
+
+
+  .message {
+    //padding: 15px 15px 60px 15px
+    min-height: 100px;
+    resize: none;
+  }
+
+  &-title {
+    font-size: 30px;
+    font-weight: 700;
+
+  }
+
+  &-label {
+    position: absolute;
+    left: 15px;
+    top: -8px;
+    font-size: 14px;
+    background-color: $light-color;
+    z-index: 1;
+    text-transform: uppercase;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #bfc4d5;
+  }
+
+  &-input {
+    border-radius: 10px;
+    border: solid 1px #e2eff4;
+    outline: none;
+    padding: 15px;
+    width: 100%;
+
+    &::placeholder {
+      color: #999999;
+      font-size: 16px;
+    }
+
+  }
+
+  &-form {
+    position: relative;
+    width: 100%;
+
+    &-submit {
+
+      margin-right: auto;
+
+      button {
+        font-family: "SFProDisplay", sans-serif;
+
+        font-size: 16px;
+        border: 2px solid $secondary-color;
+        border-radius: 5px;
+        padding: 11px 20px;
+        background-color: $secondary-color;
+        transition: 0.3s;
+
+        &:hover {
+          transition: 0.3s;
+          background: #ffffff !important;
+          box-shadow: 0px 5px 20px 0px rgb(0 0 0 / 18%);
+          transform: translateY(-5px);
+        }
+
+        &:focus {
+          box-shadow: none;
+          transform: none;
+        }
+      }
+    }
+  }
+}
+
+.extrafooter {
+  &-link {
+    &:hover {
+
+    }
+  }
+
+  background-color: #101010;
+  color: $light-color;
+  font-size: 14px;
+
+  & > div {
+    padding: 10px;
+    display: flex;
+
+    & > :nth-child(2) {
+      margin-right: auto;
+    }
+
+
+  }
+}
+
+.icon {
+  &__square {
+    transform: rotate(45deg);
+    background-color: $icon-color;
+    border-radius: 10px 10px 10px 10px;
+    border: 3px solid $icon-color;
+    display: inline-block;
+    color: #818a91;
+    text-align: center;
+    margin-bottom: 1.5em;
+  }
+
+  &__content {
+    transform: rotate(315deg);
+    color: $light-color;
+    font-size: 50px;
+    padding: 0.5em;
+  }
+}
+
+.scrollup {
+  font-size: 46px;
+  position: fixed;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  color: $secondary-color;
+  cursor: pointer;
+  display: none;
+  opacity: 0.9;
+  z-index: 1000;
+
+  @include respond($tablet) {
+    font-size: 36px;
+    opacity: 0.8;
+    left: .75rem;
+
+  }
+}
+
+.burger {
+
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  position: relative;
+
+  span {
+    display: block;
+    width: 34px;
+    height: 4px;
+    background: $secondary-color;
+    position: relative;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      background: inherit;
+      top: -260%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::after {
+      top: auto;
+      bottom: -260%;
+    }
+  }
+
+  &-wrap {
+    flex: 0 0 auto;
+    display: none;
+
+
+
+    @include respond($mobile) {
+      display: block;
+      flex: 0 0 auto;
+
+    }
+  }
+}
+
+.focusbackground {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .6);
+  display: none;
+  z-index: 1;
+  &.active {
+    display: block;
+
+  }
+}

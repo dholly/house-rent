@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "serve": "gulp sass:watch"
+
+  },
+  "dependencies": {
+    "gulp": "^4.0.2"
+  },
+  "name": "tribel",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.49.11"
+  },
+
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
