@@ -8,7 +8,7 @@ jQuery( function( $ ) {
             $('.header, .headermedia').addClass("slide");
         }
 
-        if ($(this).scrollTop() > 90)
+        if ($(this).scrollTop() > 250)
         {
             $('.header, .headermedia').addClass("scrolled");
         }
@@ -56,6 +56,7 @@ jQuery( function( $ ) {
         $('.header-menu-links').removeClass('visible');
         $('.header-menu-links').removeClass('active');
     });
+
  // WOW ANIMATIONS
     //   new WOW().init();
 
