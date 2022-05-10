@@ -3,7 +3,7 @@ jQuery( function( $ ) {
     $(window).scroll(function(e)
     {
         e.stopPropagation();
-        if ($(this).scrollTop() > 1)
+        if ($(this).scrollTop() > 200)
         {
             $('.header, .headermedia').addClass("slide");
         }
