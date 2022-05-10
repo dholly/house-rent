@@ -820,18 +820,33 @@ a {
       align-items: center;
 
       @include respond($tablet) {
+        font-size: 36px;
         display: none;
-      }
-
-
-      &.active {
-        display: flex;
+        overflow-y: auto;
+        justify-content: space-evenly;
         flex-direction: column;
         position: fixed;
         top: 90px;
         right: 0;
         background: $secondary-color;
         z-index: 11;
+        width: 100vw;
+        height: 70vh;
+        transition: .3s;
+        transform: translateX(100%);
+        a{
+
+          border-bottom:2px solid $main-color;
+        }
+      }
+
+
+      &.active {
+        transform: none;
+
+      }
+      &.visible{
+        display: flex;
 
       }
     }
@@ -1081,7 +1096,7 @@ a {
         background-color: rgba(255, 255, 255, .25);
 
         &:focus {
-          border-color: $main-color;
+          border-color: $secondary-color;
           transition: 0.3s;
         }
 
@@ -1262,4 +1277,27 @@ a {
 
   }
 }
+.closing {
+  font-size: 36px;
+  background: $secondary-color;
+  top: 0px;
+  right: 10px;
+  position: absolute;
+  cursor: pointer;
+  &.bg-transparent{
+    background: none;
+    display: none;
+    @include respond($tablet){
+      display: block;
+    }
+    &:hover{
+      background: none;
+    }
+  }
+  &:hover {
+    background: $main-color;
 
+  }
+
+
+}

@@ -35,13 +35,13 @@ jQuery( function( $ ) {
 
     $('.burger-wrap').click(function (r) {
         r.stopPropagation();
-        $('.burger').toggleClass('active');
+        $('.burger').toggleClass('visible');
         setTimeout(() => {
-            $('.burger').toggleClass('visible');
+            $('.burger').toggleClass('active');
         }, 0);
-        $('.header-menu-links').toggleClass('active');
+        $('.header-menu-links').toggleClass('visible');
         setTimeout(() => {
-            $('.header-menu__menus').toggleClass('visible');
+            $('.header-menu-links').toggleClass('active');
         }, 0);
     });
 
@@ -56,6 +56,7 @@ jQuery( function( $ ) {
         $('.header-menu-links').removeClass('visible');
         $('.header-menu-links').removeClass('active');
     });
+
 
  // WOW ANIMATIONS
     //   new WOW().init();

@@ -56,6 +56,7 @@ function headertop($args)
                     ?> </div>
                 <div class="header-menu">
                     <div class="header-menu-links">
+                        <div class="closing bg-transparent icon-clear"></div>
                         <a>Главная</a>
                         <a>Документы</a>
                         <a>Контакты</a>
@@ -346,6 +347,7 @@ function extrafooter()
     ?>
     <div class="scrollup icon-scrollup"></div>
     <div class="focusbackground"></div>
+
     <div class="extrafooter">
         <div class="mw fw">
         <span>
