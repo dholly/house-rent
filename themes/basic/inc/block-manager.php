@@ -125,6 +125,7 @@ function contactformHeader($args)
     </div>
     <?php
 }
+
 function contactformWhyus($args)
 {
     ?>
@@ -141,7 +142,8 @@ function contactformWhyus($args)
             <input type="text" class="contactform-input onwhyus-inputs" placeholder="Электронная почта">
         </div>
         <div class="contactform-form">
-            <textarea  class="contactform-input message onwhyus-inputs" placeholder="Обращайтесь по любому вопросу!"></textarea>
+            <textarea class="contactform-input message onwhyus-inputs"
+                      placeholder="Обращайтесь по любому вопросу!"></textarea>
         </div>
 
         <div class="contactform-form-submit">
@@ -373,21 +375,15 @@ function features()
     ?>
     <div class="features mw">
         <div class="features-wrap">
-
             <div class="features-preview">
-
-
                 <div class="features-preview-title">
                     <div class="features-preview-title-pre">Услуги нашей компании</div>
                     Что мы предлагаем:
                 </div>
                 <div class="features-preview-img">
-
                 </div>
                 <div class="features-preview-button"><a>Узнать подробнее</a></div>
-
             </div>
-
             <div class="features-inview">
                 <div class="features-inview-doublewrap">
                     <div class="features-inview-content">
@@ -425,6 +421,63 @@ function features()
                 </div>
             </div>
         </div>
+
+    </div>
+    <?php
+}
+
+function featuresback()
+{
+    ?>
+    <div class="features mw">
+        <div class="features-wrap second">
+
+            <div class="features-inview">
+                <div class="features-inview-doublewrap">
+                    <div class="features-inview-content">
+                        <div class="features-inview-icon icon-coin-dollar"></div>
+                        <div class="features-inview-title">При поиске жильцов</div>
+                        <div class="features-inview-text">Оперативно находим надежных жильцов, которые будут проживать в
+                            квартире длительный срок. Оформляем подробный договор найма. Берем на себя все хлопоты
+                        </div>
+                    </div>
+                    <div class="features-inview-content">
+                        <div class="features-inview-icon icon-coin-dollar"></div>
+                        <div class="features-inview-title">До вселения жильцов</div>
+                        <div class="features-inview-text">Проверяем по специальным базам (судимости, судебные
+                            производства, исполнительные производства), изучаем репутацию. Фиксируем все особенности
+                            квартиры, принимаем звонки жильцов круглосуточно и отвечаем на вопросы
+                        </div>
+                    </div>
+                </div>
+                <div class="features-inview-doublewrap">
+                    <div class="features-inview-content">
+                        <div class="features-inview-icon icon-coin-dollar"></div>
+                        <div class="features-inview-title">При проживании жильцов</div>
+                        <div class="features-inview-text">Полностью сопровождаем проживание жильцов, контролируем
+                            выполнение жильцами своих обязанностей, находимся круглосуточно на связи, решаем возникающие
+                            проблемы
+                        </div>
+                    </div>
+                    <div class="features-inview-content">
+                        <div class="features-inview-icon icon-coin-dollar"></div>
+                        <div class="features-inview-title">После проживания жильцов</div>
+                        <div class="features-inview-text">Сопровождаем расторжение договора найма и обеспечиваем полное
+                            погашение задолженности и подготовку квартиры к новым жильцам
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="features-preview">
+                <div class="features-preview-title">
+                    <div class="features-preview-title-pre">Услуги нашей компании</div>
+                    Что мы предлагаем:
+                </div>
+                <div class="features-preview-img">
+                </div>
+                <div class="features-preview-button"><a>Узнать подробнее</a></div>
+            </div>
+        </div>
     </div>
     <?php
 }
@@ -436,55 +489,39 @@ function whyus()
         <div class="whyus-wrap">
             <div class="whyus-content">
                 <div class="whyus-title">
-                    <div class="whyus-title-pre">Почему выбирают нас?</div>
-                    Наши клиенты выбирают нас потому что:
+
+                    Как мы оформляем договор аренды (найма):
                 </div>
                 <div class="whyus-edges">
                     <div class="whyus-edge">
-                        <div class="whyus-edge-icon icon-happy"></div>
+
                         <div class="whyus-edge-wrap">
-                            <div class="whyus-edge-title">
-                                Lorem ipsum 100%
+
+                            <div class="whyus-edge-text">Наши формы договоров и передаточных актов
+                                оттачивались годами, прошли десятки выигранных
+                                судов и содержат все нюансы, которые важны при
+                                проживании жильцов. Мы знаем что прописать в
+                                ‘договоре, чтобы снизить количество споров с
+                                жильцами, защитить Ваши интересы и обеспечить
+                                ответственность жильцов.
+
                             </div>
-                            <div class="whyus-edge-text">Aliquam bibendum vel ipsum sit amet commodo. Curabitur porta
-                                ornare.
+                            <div class="whyus-edge-title">
+                                Юристы нашей фирмы, за годы практики составили грамотные договора, учитыващие все
+                                возможные нюансы:
+                            </div>
+                            <div class="whyus-edge-links ">
+                                <ul>
+                                    <li><a>Договор оферты</a></li>
+                                    <li><a>Поручение по доверительному управлению</a></li>
+                                    <li><a>Поручение по поиску жильцов</a></li>
+                                    <li><a>Политика приватности</a></li>
+                                    <li><a>Проект договора найма</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
 
-                    <div class="whyus-edge">
-                        <div class="whyus-edge-icon icon-happy"></div>
-                        <div class="whyus-edge-wrap">
-                            <div class="whyus-edge-title">
-                                Lorem ipsum 100%
-                            </div>
-                            <div class="whyus-edge-text">Aliquam bibendum vel ipsum sit amet commodo. Curabitur porta
-                                ornare.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="whyus-edge">
-                        <div class="whyus-edge-icon icon-happy"></div>
-                        <div class="whyus-edge-wrap">
-                            <div class="whyus-edge-title">
-                                Lorem ipsum 24/7
-                            </div>
-                            <div class="whyus-edge-text">Aliquam bibendum vel ipsum sit amet commodo. Curabitur porta
-                                ornare.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="whyus-edge">
-                        <div class="whyus-edge-icon icon-happy"></div>
-                        <div class="whyus-edge-wrap">
-                            <div class="whyus-edge-title">
-                                Lorem ipsum 24/7
-                            </div>
-                            <div class="whyus-edge-text">Aliquam bibendum vel ipsum sit amet commodo. Curabitur porta
-                                ornare.
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="whyus-form-wrap">
@@ -496,6 +533,112 @@ function whyus()
                 </div>
             </div>
         </div>
+    </div>
+    <?php
+}
+
+function chooseus()
+{
+    ?>
+    <div class="chooseus">
+        <div class="chooseus-wrap">
+            <div class="chooseus-top-bg">
+                <div class="chooseus-top-wrap">
+                    <div class="chooseus-top-title">Почему выбирают нашу компанию?</div>
+                    <div class="chooseus-top-text">Мы гарантированно сделаем за вас всё!</div>
+                </div>
+
+            </div>
+            <div class="chooseus-bottom mw">
+
+                <div class="chooseus-bottom-contentwrap">
+                    <div class="chooseus-bottom-content bg1">
+                        <div class="chooseus-bottom-contentbg">
+                            <div class="chooseus-bottom-title">Никаких долгов за аренду</div>
+                            <div class="chooseus-bottom-text">Наша компания платит, если жильцы задерживают арендные
+                                платежи.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chooseus-bottom-content bg2">
+                        <div class="chooseus-bottom-contentbg">
+                            <div class="chooseus-bottom-title">Круглосуточное дежурство</div>
+                            <div class="chooseus-bottom-text">На связи 24/7 и готовы к выезду по адресу квартиры для
+                                решения любых вопросов.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chooseus-bottom-content bg3">
+                        <div class="chooseus-bottom-contentbg">
+                            <div class="chooseus-bottom-title">Только надежные жильцы</div>
+                            <div class="chooseus-bottom-text">Проверяем кандидатов через специальный сервис
+                                кредитную историю, историю правонарушений, судебные долги и другое.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chooseus-bottom-content bg4">
+                        <div class="chooseus-bottom-contentbg">
+                            <div class="chooseus-bottom-title">Все это без ваших хлопот</div>
+                            <div class="chooseus-bottom-text">Вы можете находиться в любой части мира. Мы
+                                контролируем весь процесс аренды квартиры
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
+function faq()
+{
+    ?>
+    <div class="faq mw">
+        <div class="faq-wrap">
+            <div class="faq-title">FAQ</div>
+            <div class="faq-pretitle">Самые частозадаваемые вопросы</div>
+            <div class="faq-content-wrap">
+
+                <div class="faq-content">
+                    <div class="faq-content-icon icon-question"></div>
+                    <div class="faq-content-title">Могу ли я передать вам все заботы или вообще проживать в другом
+                        месте?
+                    </div>
+                    <div class="faq-content-text">Да, конечно. Все вопросы при сдаче квартиры в наем мы берем на себя,
+                        место Вашего жительства не имеет значения при нашей работы. Наши услуги как раз и наиболее
+                        востребованы собственниками, проживающими в другом населенном пункте или стране (78% наших
+                        клиентов). При этом мы работаем прозрачно, Вы будете в курсе всего происходящего с квартирой. Мы
+                        регулярно направляем Вам подробный отчет о нашей работе.
+                    </div>
+                </div>
+
+                <div class="faq-content">
+                    <div class="faq-content-icon icon-question"></div>
+                    <div class="faq-content-title">Как и кем устанавливается цена аренды квартиры?</div>
+                    <div class="faq-content-text">Размер арендной платы устанавливает собственник.
+                        Мы только даем рекомендации по размеру арендной платы.
+                        Пока квартира находится в поиске жильцов, раз в неделю с собственником связывается координатор и
+                        докладывает о процессе поиска: были ли звонки, количество показов, замечания потенциальных
+                        жильцов. Это позволяет оперативно подстроиться под потребности рынка и, при необходимости,
+                        отрегулировать цену.
+                    </div>
+                </div>
+
+                <div class="faq-content">
+                    <div class="faq-content-icon icon-question"></div>
+                    <div class="faq-content-title">Должен ли собственник присутствовать при показе квартиры?</div>
+                    <div class="faq-content-text">Нет. Мы самостоятельно показываем квартиру. Однако право присутствовать у собственника, безусловно, имеется.
+                    </div>
+                </div>
+            </div>
+            <a class="faq-button">Подробнее</a>
+        </div>
+
     </div>
     <?php
 }

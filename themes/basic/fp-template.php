@@ -15,4 +15,8 @@ get_block('headermedia'($args));
 get_block('howitworks'($args));
 get_block('features'($args));
 get_block('whyus'($args));
+get_block('featuresback');
+
+get_block('chooseus');
+get_block('faq');
 get_footer();
