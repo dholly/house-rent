@@ -1251,185 +1251,44 @@ a {
 }
 
 .tariff {
-  &-popup{
+  &-popup {
     display: none;
     position: fixed;
-    top:50%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
-    &.active{
+
+    &.active {
       display: block;
-      @include respond($tablet){
+      @include respond($tablet) {
         width: 70%;
       }
-      @include respond($mobile){
+      @include respond($mobile) {
         width: 90%;
       }
     }
   }
-  &-no{
-    font-weight: 900;
-  }
-  &-yes{
-    color: $secondary-color;
-  }
-  &-grid{
-    margin-top: 2em;
-  display: grid;
-  grid-template-columns: 1fr 25% 25%;
-    @include respond(800px){
-      grid-template-columns: 1fr 20% 20%;
-    }
-    @include respond(680px){
-      grid-template-columns: 1fr 15% 15%;
-    }
-    @include respond(400px){
-      grid-template-columns: 1fr 13% 13%;
-    }
+
+
+  &-btn {
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-top: 10px;
+    transform: translate(-50%, -13px);
   }
 
-&-title{
-  font-size: 40px;
-  font-weight: 800;
-  text-align: center;
-}
-  &-pretitle{
-    font-weight: 300;
-    margin-bottom: 1em;
-    font-size: 20px;
-    text-align: center;
-  }
-  &-point {
-    display: flex;
-    flex-direction: column;
-
-
-    div {
-
-      padding: 10px;
-      height: 40px;
-      max-height: 40px;
-      display: flex;
-      justify-content: center;
-      border: 1px solid rgba(0,0,0,.1);
-border-top: none;
-      border-left: none;
-      border-right: none;
-
-      &:nth-child(1) {
-        border-top: 1px solid rgba(0,0,0,.1);
-      }
-      &:nth-last-child(1){
-      border-bottom: none;
-    }
-      @include respond(580px){
-        max-height: 50px;
-        height: 50px;
-      }
-
-    }
-  }
-
-  &-desc {
-    display: flex;
-    flex-direction: column;
-
-    span {
-      height: 39px;
-      border-right: 1px solid rgba(0,0,0,.1);
-      @include respond(680px){
-        height: 40px;
-      }
-    }
-
-    div {
-      padding: 10px;
-      max-height: 40px;
-      display: flex;
-      justify-content: center;
-      border: 1px solid rgba(0,0,0,.1);
-
-      border-top: none;
-      border-left: none;
-
-      &:nth-child(1) {
-        border: none;
-      }
-
-      &:nth-last-child(1) {
-        border-bottom: none;
-      }
-      @include respond(580px){
-        max-height: 50px;
-height: 50px;
-        justify-content: start;
-      }
-      @include respond(400px){
-        font-size: 16px;
-      }
-
-    }
-  }
-
-  &-fift {
-    font-weight: 700;
-    display: flex;
-    justify-content: center;
-    border: 1px solid rgba(0,0,0,.1);
-    border-left: none;
-    padding: 10px;
-    max-height: 40px;
-    border-bottom: none;
-    border-top: none;
-    @include respond(680px){
-      font-size: 18px;
-    }
-    span{
-      @include respond(680px){
-        display: none;
-      }
-    }
-  }
-
-  &-twent {
-
-    font-weight: 700;
-    display: flex;
-    justify-content: center;
-
-    padding: 10px;
-    max-height: 40px;
-    border: 1px solid rgba(0,0,0,.1);
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    @include respond(680px){
-      font-size: 18px;
-    }
-    span{
-      @include respond(680px){
-        display: none;
-      }
-    }
-  }
-  &-borders{
-    border-right:  1px solid rgba(0,0,0,.1);
-  }
-  &-btn{
-    display: flex;
-    justify-content: center;
-    margin-top: 2em;
-  }
   &-button {
 
-    width: 150px;
+    width: 200px;
+    text-align: center;
     cursor: pointer;
     color: #fff;
     font-size: 16px;
     border: 1px solid $main-color;
-    border-radius: 8px;
+    border-radius: 5px;
     padding: 11px 20px;
     background-color: $main-color;
     transition: 0.4s ease-in;
@@ -1448,6 +1307,120 @@ height: 50px;
       transform: none;
     }
   }
+}
+
+.comission {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 70px;
+  @include respond($tablet) {
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-block {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0 9px 20px 0 rgb(0 0 0 / 10%);
+    position: relative;
+    @include respond($tablet) {
+      width: 80%;
+    }
+    @include respond($mobile) {
+      width: 90%;
+    }
+  }
+
+  &-title {
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    border-radius: 5px;
+
+    &.comission-bg1 {
+      background: url("../images/tarrif-1.jpg"), linear-gradient(#eb01a5, #d13531);
+      background-size: cover;
+      background-position: center;
+      box-shadow: inset 0 0 0 2000px rgba(20, 177, 187, 0.7);
+    }
+
+    &.comission-bg2 {
+      background: url("../images/tariff-2.jpg"), linear-gradient(#eb01a5, #d13531);
+      background-size: cover;
+      background-position: center;
+      box-shadow: inset 0 0 0 2000px rgba(20, 177, 187, 0.7);
+    }
+  }
+
+  &-points {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 5px;
+    margin-bottom: 50px;
+  }
+
+  &-content {
+    display: flex;
+    gap: 5px;
+  }
+
+  &-title {
+
+  }
+
+  &-name {
+    padding: 15px;
+    padding-bottom: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  &-price {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    padding: 15px;
+    padding-top: 0;
+    gap: 5px;
+    color: #fff;
+
+    & > div:nth-child(1) {
+
+    }
+
+    & > div:nth-child(2) {
+      font-size: 24px;
+      font-weight: 700;
+    }
+  }
+}
+
+.icon-small {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: $secondary-color;
+}
+
+.icon-transparent {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  visibility: hidden;
+}
+
+.none {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .extrafooter {
@@ -1610,9 +1583,10 @@ height: 50px;
 .wpcf7-response-output {
   background: #fff;
 }
+
 .popup-close {
-position: absolute;
-  top:5px;
+  position: absolute;
+  top: 5px;
   right: 5px;
   cursor: pointer;
   font-size: 30px;

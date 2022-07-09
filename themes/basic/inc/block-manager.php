@@ -597,7 +597,7 @@ function tariffs()
     <div class="tariff whyus navsection mw">
         <div class="faq-title tc">Наши тарифы</div>
         <div class="faq-pretitle tc">Мы предлагаем два основных тарифа</div>
-        <div class="tariff-grid">
+        <!--  <div class="tariff-grid">
             <div class="tariff-desc">
                 <span></span>
                 <div>Персональный менеджер</div>
@@ -641,10 +641,123 @@ function tariffs()
                     <div class="tariff-yes icon-checkmark"></div>
                 </div>
             </div>
+        </div> -->
+        <div class="comission">
+            <div class="comission-block">
+                <div class="comission-title comission-bg1">
+                    <div class="comission-name">
+                        Тариф Базовый
+                    </div>
+                    <div class="comission-price">
+                        <div>Комиссия</div>
+                        <div>15%</div>
+                    </div>
+                </div>
+                <div class="comission-points">
+                    <div class="comission-content">
+                        <div class="icon-checkmark icon-small"></div>
+                        <div>Персональный менеджер</div>
+                    </div>
+                    <div class="comission-content">
+                        <div class="icon-checkmark icon-small"></div>
+                        <div>Размещение рекламы на платформах</div>
+                    </div>
+                    <div class="comission-content">
+                        <div class="icon-checkmark icon-small"></div>
+                        <div>Профессиональная фотосъёмка квартиры</div>
+                    </div>
+                    <div class="comission-content">
+                        <div class="icon-checkmark icon-small"></div>
+                        <div>Организация заезда/выезда</div>
+                    </div>
+                    <div class="comission-content">
+                        <div class="icon-checkmark icon-small"></div>
+                        <div>Онлайн платежи</div>
+                    </div>
+                    <div class="comission-content none">
+                        <div class="icon-checkmark icon-transparent"></div>
+                        <div>Коммуникация с гостями</div>
+                    </div>
+                    <div class="comission-content none">
+                        <div class="icon-checkmark icon-transparent"></div>
+                        <div>Организация уборки</div>
+                    </div>
+                    <div class="comission-content none">
+                        <div class="icon-checkmark icon-transparent"></div>
+                        <div>Замена постельного белья</div>
+                    </div>
+                    <div class="comission-content none">
+                        <div class="icon-checkmark icon-transparent"></div>
+                        <div>Банные принадлежности</div>
+                    </div>
+                    <div class="comission-content none">
+                        <div class="icon-checkmark icon-transparent"></div>
+                        <div>Техническое сопровождение</div>
+                    </div>
+                </div>
+                <div class='tariff-btn'>
+                    <div class="tariff-button">Оформить</div>
+                </div>
+            </div>
+            <div class="comission-block">
+                <div class="comission-title comission-bg2">
+                    <div class="comission-name">
+                        Тариф Премиум
+                    </div>
+                    <div class="comission-price">
+                        <div>Комиссия</div>
+                        <div>20%</div>
+                    </div>
+                </div>
+                <div class="comission-points">
+                    <div class="comission-content">
+                        <div class="icon-checkmark icon-small"></div>
+                        <div>Персональный менеджер</div>
+                    </div>
+                    <div class="comission-content">
+                        <div class="icon-checkmark icon-small"></div>
+                        <div>Размещение рекламы на платформах</div>
+                    </div>
+                    <div class="comission-content">
+                        <div class="icon-checkmark icon-small"></div>
+                        <div>Профессиональная фотосъёмка квартиры</div>
+                    </div>
+                    <div class="comission-content">
+                        <div class="icon-checkmark icon-small"></div>
+                        <div>Организация заезда/выезда</div>
+                    </div>
+                    <div class="comission-content">
+                        <div class="icon-checkmark icon-small"></div>
+                        <div>Онлайн платежи</div>
+                    </div>
+                    <div class="comission-content">
+                        <div class="icon-checkmark icon-small"></div>
+                        <div>Коммуникация с гостями</div>
+                    </div>
+                    <div class="comission-content">
+                        <div class="icon-checkmark icon-small"></div>
+                        <div>Организация уборки</div>
+                    </div>
+                    <div class="comission-content">
+                        <div class="icon-checkmark icon-small"></div>
+                        <div>Замена постельного белья</div>
+                    </div>
+                    <div class="comission-content">
+                        <div class="icon-checkmark icon-small"></div>
+                        <div>Банные принадлежности</div>
+                    </div>
+                    <div class="comission-content">
+                        <div class="icon-checkmark icon-small"></div>
+                        <div>Техническое сопровождение</div>
+                    </div>
+                </div>
+                <div class='tariff-btn'>
+
+                    <div class="tariff-button">Оформить</div>
+                </div>
+            </div>
         </div>
-        <div class='tariff-btn'>
-            <div class="tariff-button">Приобрести</div>
-        </div>
+
         <div class="tariff-popup">
             <?php
             get_block('contactformWhyus');
