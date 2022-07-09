@@ -36,14 +36,14 @@ $mobile: 575px;
   }
 }
 
-$main-color: #2EE59D;
-$secondary-color: #00cecb;
+$main-color: #00678a;
+$secondary-color: #00678a;
 $light-color: #fff;
 $dark-color: #272838;
 $icon-color: #09658c;
 
 body {
-  font-family: 'SFProDisplay', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 
 }
 
@@ -62,78 +62,80 @@ a {
 }
 
 .faq {
-  margin-bottom: 60px;
+  margin: 10vh auto;
 
   &-button {
+    display: inline-block;
     border-radius: 5px;
     background-color: $secondary-color;
-    padding: 20px;
+    padding: .75em 1em;
     font-size: 20px;
     font-weight: 500;
     color: $light-color;
+    border: 1px solid transparent;
+    @include respond($tablet) {
+      font-size: 17px;
+    }
 
     &:hover {
       transform: translateY(-5px);
-      transition: 0.3s;
-      background-color: $main-color;
-      box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+      transition: 0.4s ease-in;
+      background-color: #fff;
+      border-color: $main-color;
+      box-shadow: 0 15px 20px rgba(46, 229, 157, 0.4);
       color: #000;
     }
   }
 
-  &-wrap {
-    padding-left: 5px;
-    padding-right: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   &-title {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 800;
+    @include respond($tablet) {
+      font-size: 32px;
+    }
   }
 
   &-pretitle {
+    font-weight: 300;
+    margin-bottom: .25em;
     font-size: 20px;
+    @include respond($tablet) {
+      font-size: 16px;
+    }
   }
 
   &-content {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    align-items: center;
+    transition: .5s ease-in-out;
+    width: 31%;
     text-align: center;
     position: relative;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
+    padding: 40px 25px 20px 25px;
+    @include respond($laptop) {
+      padding: 30px 12px 20px 12px;
+    }
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    box-shadow: 0 9px 20px 0 rgb(0 0 0 / 10%);
-    @include respond($laptop) {
-      width: 60%;
-    }
     @include respond($tablet) {
-      width: 80%;
+      width: 90%;
     }
     @include respond($mobile) {
-      width: 90%;
+      width: 100%;
     }
 
     &:hover {
+      border-color: rgba($main-color, .3);
+
       .icon-question {
         background-color: $main-color;
-        transition: .3s;
+        color: #fff;
       }
     }
 
     &-wrap {
       display: flex;
-      justify-content: space-evenly;
-      margin-top: 70px;
-      margin-bottom: 30px;
-      @include respond($laptop) {
+      justify-content: space-around;
+      margin: 70px 0 50px;
+      @include respond($tablet) {
         flex-direction: column;
         align-items: center;
         gap: 70px;
@@ -142,31 +144,58 @@ a {
 
     &-title {
       font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 30px;
-      padding-top: 70px;
+      @include respond($desktop) {
+        @include resp-font(20px, 16px, $desktop, $tablet);
+      }
+      @include respond($tablet) {
+        @include resp-font(22px, 18px, $tablet, 320px);
+      }
+      color: $main-color;
+      font-weight: 600;
+      margin: 1em 0;
+    }
+
+    &-text {
+      font-size: 16px;
+      @include respond($desktop) {
+        @include resp-font(16px, 13px, $desktop, $tablet);
+      }
+      @include respond($tablet) {
+        @include resp-font(16px, 13px, $tablet, 320px);
+      }
+      line-height: 1.5;
     }
 
     &-icon {
+      transition: .5s ease-in-out;
       text-align: center;
-      font-size: 80px;
-      color: #000;
+      font-size: 50px;
+      font-weight: 300;
+      color: $main-color;
       position: absolute;
-      top: -40px;
+      top: 0;
       left: 50%;
-      transform: translateX(-50%);
-
-      &.icon-question {
-        background: $secondary-color;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      border: 3px solid $main-color;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      line-height: 90px;
+      @include respond($desktop) {
+        @include resp-font(50px, 32px, $desktop, $tablet);
+      }
+      @include respond($desktop) {
+        @include resp-property('width', 90px, 60px, $desktop, $tablet);
+        @include resp-property('height', 90px, 60px, $desktop, $tablet);
+        @include resp-property('line-height', 90px, 60px, $desktop, $tablet);
+      }
+      @include respond($tablet) {
         width: 80px;
         height: 80px;
-        border-radius: 50%;
         line-height: 80px;
-        transition: .3s;
-
+        font-size: 45px;
       }
-
-
     }
   }
 
@@ -174,91 +203,76 @@ a {
 }
 
 .chooseus {
-  margin-bottom: 60px;
-
-  &-wrap {
-
-  }
+  max-width: 1920px;
+  margin: 0 auto 60px auto;
 
   &-top {
     &-bg {
-      background-image: url("../images/chooseus.jpeg");
-      background-position: center center;
+      padding: 0 20px;
+      background-image: url("../images/chooseus.png");
+      background-position: center bottom;
       background-size: cover;
-      background-color: rgb(1, 1, 1, 0.4);
+      background-color: rgb(10 15 42 / 35%);
       background-blend-mode: darken;
-      height: 50vh;
-      margin-bottom: calc(-25vh + 60px);
-      @include respond($mobile) {
-        margin-bottom: calc(-25vh + 85px);
+      height: 25vw;
+      @include respond($tablet) {
+        height: 40vw;
+      }
+      @include respond($tablet) {
+        height: 60vw;
       }
     }
 
-    &-wrap {
-      padding-right: 5px;
-      padding-left: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      height: 100%;
-    }
-
     &-title {
-      color: $light-color;
+      color: #fff;
+      font-weight: 300;
       font-size: 20px;
+      margin-bottom: .5em;
       text-transform: uppercase;
+      @include respond($laptop) {
+        font-size: 18px;
+      }
       @include respond($tablet) {
-        text-align: center;
+        @include resp-font(18px, 12px, $tablet, 320px);
       }
     }
 
     &-text {
       color: $light-color;
       font-size: 40px;
-      font-weight: 800;
-      @include respond($laptop) {
-        font-size: 38px;
+      @include respond($desktop) {
+        @include resp-font(40px, 30px, $desktop, $tablet);
       }
       @include respond($tablet) {
-        text-align: center;
+        @include resp-font(40px, 24px, $tablet, 320px);
       }
-      @include respond($mobile) {
-        font-size: 30px;
-
+      font-weight: 800;
+      @include respond($tablet) {
+        text-align: center;
       }
     }
   }
 
   &-bottom {
     //height: calc(75vh - 60px);
-
-    &-title {
-      font-size: 20px;
-      font-weight: 700;
+    margin-top: calc(-12.5vw + 90px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    @include respond($laptop) {
+      margin-top: calc(-14vw + 70px);
     }
-
-    &-text {
-      font-size: 18px;
-    }
-
-    &-contentwrap {
-      padding-right: 5px;
-      padding-left: 5px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
-      gap: 30px;
-      @include respond($laptop) {
-        flex-direction: column;
-        align-items: center;
-      }
+    @include respond($tablet) {
+      flex-direction: column;
+      align-items: center;
+      margin-top: calc(-25.5vw + 60px);
     }
 
     &-content {
-      width: 45%;
+      width: 40%;
       background-position: right bottom;
-      background-size: 100%;
+      background-size: cover;
       background-repeat: no-repeat;
       border-radius: 10px;
       height: 300px;
@@ -268,14 +282,20 @@ a {
 
       &:hover {
         transition: .3s;
-        transform: translatey(-10px);
+        transform: translateY(-10px);
       }
 
       @include respond($laptop) {
+        width: 45%;
+        height: 250px;
+      }
+      @include respond($tablet) {
         width: 90%;
+        max-width: 500px;
+        height: 280px;
       }
       @include respond($mobile) {
-        height: 250px;
+        height: 240px;
       }
 
       &.bg1 {
@@ -301,15 +321,41 @@ a {
       width: 60%;
       color: #000;
       border-radius: 3% 0% 59% 3%;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      padding: 15px 35px 10px;
-      height: 300px;
+      padding: 25px 25px 10px;
+      height: 100%;
+      @include respond($laptop) {
+        padding: 15px 15px 10px;
+      }
+      @include respond($tablet) {
+        width: 65%;
+        padding: 25px 5% 15px 25px;
+      }
       @include respond($mobile) {
-        width: 70%;
-        padding: 5px 5px 5px;
-        height: 250px;
+        padding: 15px 5% 15px 15px;
+      }
+    }
+
+    &-title {
+      font-size: 20px;
+      margin-bottom: 1.5em;
+      @include respond($desktop) {
+        @include resp-font(20px, 16px, $desktop, $tablet);
+      }
+      @include respond($tablet) {
+        @include resp-font(22px, 15px, $tablet, 320px);
+        margin-bottom: 1em;
+      }
+      font-weight: 700;
+      color: $main-color;
+    }
+
+    &-text {
+      font-size: 18px;
+      @include respond($desktop) {
+        @include resp-font(18px, 14px, $desktop, $tablet);
+      }
+      @include respond($tablet) {
+        @include resp-font(18px, 12px, $tablet, 320px);
       }
     }
   }
@@ -317,431 +363,298 @@ a {
 
 .features {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 1920px;
+  margin: auto;
 
-  &-wrap {
-    padding-right: 5px;
-    padding-left: 5px;
-    display: flex;
-    margin-bottom: 65px;
-    justify-content: space-between;
-
-    &.second {
-      @include respond($laptop) {
-        flex-direction: column-reverse;
-      }
-    }
-
+  &.rtl {
+    flex-direction: row-reverse;
     @include respond($laptop) {
-
-      margin-bottom: 45px;
-      flex-direction: column;
-      align-items: center;
-
+      flex-direction: row;
     }
-    @include respond($tablet) {
-
-      margin-bottom: 35px;
-    }
-
   }
 
+  @include respond($laptop) {
+    flex-direction: column;
+  }
 
   &-preview {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 10px;
-    box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3);
-    position: relative;
-
-
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    background-color: rgb(10 15 42 / 35%);
+    background-blend-mode: darken;
     @include respond($laptop) {
-      width: 65%;
-      margin-bottom: 30px;
-    }
-    @include respond($tablet) {
-      width: 75%;
+      width: 100%;
+      height: 60vw;
+      mask-image: linear-gradient(rgba(0, 0, 0, 1.0), transparent);
+      -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1.0), transparent);
+      & + div {
+        z-index: 1;
+        margin-top: -50vw;
+        margin-bottom: 5vw;
+      }
     }
     @include respond($mobile) {
-      width: 90%;
-    }
-
-    &-title {
-      display: flex;
-      flex-direction: column;
-      padding: 30px;
-      font-size: 36px;
-      font-weight: 800;
-      gap: 20px;
-      @include respond($desktop) {
-        font-size: 30px;
-      }
-
-      &-pre {
-        text-transform: uppercase;
-        font-size: 14px;
-        font-weight: 400;
-        color: $secondary-color;
-
+      height: 100vw;
+      & + div {
+        margin-top: -90vw;
       }
     }
 
-    &-img {
-      display: flex;
-      background-image: url("../images/features.jpeg");
-      background-size: cover;
-      background-position: center center;
-      width: 100%;
-      height: 480px;
-      border-radius: 0 0 10px 10px;
-
-    }
-
-    &-button {
-      /*margin-top: -10px;
-      margin-right: 50%;*/
-      position: absolute;
-      bottom: -10px;
-      left: 50px;
-      transition: 0.3s;
-
-      &:hover {
-        transform: translateY(-5px);
-        transition: 0.3s;
-      }
-
-      a {
-
-        border-radius: 5px;
-        background-color: $secondary-color;
-        padding: 20px;
-        font-size: 20px;
-        font-weight: 500;
-        color: $light-color;
-
-        &:hover {
-
-          background-color: $main-color;
-          box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-          color: #000;
-
-
-        }
-      }
-    }
   }
 
   &-inview {
-    display: flex;
-    width: calc(60% - 30px);
-    justify-content: space-between;
-
+    border-top: 1px solid rgba($main-color, .2);
+    border-bottom: 1px solid rgba($main-color, .2);
+    padding: calc(min(4vw, 60px)) calc(min(4vw, 75px));
+    width: 50%;
     @include respond($laptop) {
+      border: none;
       width: 100%;
-      justify-content: space-around;
-    }
-    @include respond($mobile) {
-      flex-direction: column;
-      align-items: center;
     }
 
-    &-doublewrap {
-      display: flex;
-      flex-direction: column;
-      width: calc(50% - 15px);
-
+    &__caption {
+      font-weight: 300;
+      font-size: 20px;
       @include respond($laptop) {
-        width: calc(50% - 25px);
+        color: $main-color
       }
-      @include respond($mobile) {
-        width: 90%;
+      @include respond($tablet) {
+        @include resp-font(20px, 16px, $tablet, 320px)
       }
+      text-transform: uppercase;
+      margin-bottom: .5em;
+    }
 
+    &__title {
+      font-size: 40px;
+      @include respond($laptop) {
+        color: #000;
+      }
+      @include respond($tablet) {
+        @include resp-font(40px, 28px, $tablet, 320px)
+      }
+      font-weight: 700;
+      color: $main-color;
     }
 
     &-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-evenly;
-      text-align: center;
-      border-radius: 10px;
-      /*margin: 10px;*/
-      margin-bottom: 15px;
-      margin-top: 15px;
-      padding: 10px;
-      height: 300px;
-      box-shadow: 0 9px 20px 0 rgb(0 0 0 / 10%);
-      transition: .3s;
-      cursor: pointer;
-
-      &:hover {
-        transform: translatey(-2%);
-        transition: .3s;
-
-
-        .features-inview-icon {
-          color: $main-color;
-          transition: .3s;
-        }
+      font-size: 16px;
+      margin-top: 3em;
+      @include respond($laptop) {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 2em;
+      }
+      @include respond($tablet) {
+        @include resp-font(16px, 14px, $tablet, 320px);
       }
 
-    }
-
-    &-icon {
-      font-size: 60px;
-      color: $secondary-color;
-      transition: .3s;
-
+      img {
+        width: 5em;
+        height: 5em;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+        margin-right: 1.5em;
+        @include respond($laptop) {
+          margin: 0 0 1em 0;
+        }
+      }
     }
 
     &-title {
-      font-size: 20px;
+      font-size: 1.5em;
       font-weight: 600;
+      @include respond($laptop) {
+        color: $main-color;
+      }
     }
 
     &-text {
+      margin-top: .5em;
       font-size: 16px;
     }
   }
 }
 
 .footer {
-  display: flex;
-  flex-direction: column;
-  padding-right: 5px;
-  padding-left: 5px;
-
-  &-bg {
-    font-size: 20px;
-    background: black;
-    color: $light-color;
-    padding-top: 1em;
-    padding-bottom: 1em;
-
+  padding: 60px 0 40px;
+  font-size: 20px;
+  @include respond($laptop) {
+    font-size: 18px;
   }
+  background: #000;
+  color: #fff;
 
   &-wrap {
     display: flex;
-
     justify-content: space-between;
-
-    @include respond($laptop) {
-      margin-bottom: 10px;
-
-    }
     @include respond($tablet) {
-      justify-content: space-around;
-
-      margin-bottom: 20px;
+      flex-wrap: wrap;
     }
-
-    /*@include respond($laptop) {
-      flex-direction: column;
-      justify-content: center;
-
-      align-items: center;
-      text-align: center;
-    }*/
-
-
   }
 
-  &__icons {
-    &-socials {
-      display: flex;
-      font-size: 60px;
-      gap: 1.5em;
-      @include respond($mobile) {
-        justify-content: center;
-        gap: 0.5em;
-      }
-      /*
-      @include respond($laptop) {
-
-        justify-content: center;
-
-        align-items: center;
-        text-align: center;
-      }*/
-
-
-    }
-
-    &-contacts {
-      display: flex;
-      flex-direction: column;
-      font-size: 20px;
-      gap: 1em;
-
-      @include respond($tablet) {
-        font-size: 18px;
-      }
-
+  &__socials {
+    display: flex;
+    font-size: 2em;
+    gap: 1em;
+    @include respond($mobile) {
+      justify-content: center;
     }
   }
 
   &-logo {
     display: flex;
-    flex: 0 0 50%;
-
-
-    padding-bottom: 1em;
-    @include respond($tablet) {
-
-    }
+    flex: 0 0 auto;
+    margin-bottom: 2em;
 
     img {
       display: block;
-      width: 150px;
-      @include respond($tablet) {
-        width: 100px;
-      }
+      height: 1.7em;
+    }
+
+    @include respond($tablet) {
+      margin: 0;
     }
   }
 
 
   &-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
-    width: 30%;
-    @include respond($laptop) {
-      padding-right: 10px;
-    }
+    width: 40%;
     @include respond($tablet) {
-      display: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 2em;
     }
-
-    &-title {
-      font-size: 24px;
-      font-weight: 700;
-      @include respond($laptop) {
-        font-size: 18px;
-      }
+    @include respond($mobile) {
+      flex-direction: column;
+      gap: 1.5em;
     }
-
-    &-text {
-      @include respond($laptop) {
-        font-size: 18px;
-      }
-    }
-
   }
 
   &-links {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
     width: 30%;
-    @include respond($laptop) {
-      width: 40%;
+    @include respond($tablet) {
+      width: 50%;
     }
     @include respond($mobile) {
-      width: 35%;
-    }
-
-    &-text {
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
+      width: 100%;
+      margin-bottom: 2em;
+      text-align: center;
     }
 
     &-title {
       font-size: 24px;
-      font-weight: 700;
-      @include respond($tablet) {
-        font-size: 20px;
+      @include respond($laptop) {
+        font-size: 21px;
       }
+      margin-bottom: 1em;
+      font-weight: 700;
     }
 
     &-text {
       @include respond($tablet) {
         font-size: 18px;
+      }
+
+      div + div {
+        margin-top: 1em;
       }
     }
   }
 
   &-contacts {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
     width: 30%;
-    @include respond($laptop) {
-      width: 40%;
-    }
     @include respond($tablet) {
-      width: 60%;
+      width: 50%;
     }
     @include respond($mobile) {
-      width: 65%;
+      width: 100%;
+      text-align: center;
     }
 
     &-title {
       font-size: 24px;
+      margin-bottom: 1em;
       font-weight: 700;
-      @include respond($tablet) {
-        font-size: 20px;
+      @include respond($laptop) {
+        font-size: 21px;
       }
     }
 
+    &__item {
+      & + & {
+        margin-top: 1em;
+      }
+
+      a::before {
+        margin-right: 5px;
+      }
+    }
   }
 }
 
 .underfooter {
   padding-top: 3em;
   padding-bottom: 3em;
-  background-image: url("../images/underfooter-bg.webp");
-  background-color: rgb(1, 1, 1, 0.4);
+  background-image: url("../images/underfooter-bg.jpg");
+  background-color: rgb(10 15 42 / 35%);
   background-blend-mode: darken;
   background-repeat: no-repeat;
   background-position: center center;
-  color: $light-color;
+  color: #fff;
 
   &-wrap {
     display: flex;
-    justify-content: space-between;
-    padding-right: 5px;
-    padding-left: 5px;
-    @include respond($tablet) {
+    justify-content: space-around;
+    @include respond($mobile) {
       flex-direction: column;
       align-items: center;
       gap: 30px;
     }
 
     & > div {
-      width: 30%;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      gap: 5px;
-      padding: 1em;
-      border: 0px solid transparent;
+      text-align: center;
+      padding: 25px;
+      max-width: 25vw;
       border-radius: 10px;
-      backdrop-filter: blur(1px) brightness(80%);
-      box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(5px) brightness(70%);
+      box-shadow: 0 5px 5px 2px rgba(0, 0, 0, 0.3);
       cursor: default;
       @include respond($tablet) {
-        width: 75%;
+        padding: 15px;
       }
-      /* &:hover {
-         backdrop-filter: blur(3px) brightness(60%);
-       }*/
+      @include respond($mobile) {
+        max-width: none;
+        width: 300px;
+      }
     }
   }
 
   &-icon {
     font-size: 50px;
+    @include respond($laptop) {
+      @include resp-font(50px, 32px, $laptop, $mobile);
+    }
+    @include respond($mobile) {
+      display: none;
+    }
   }
 
   &-title {
-    font-size: 20px;
+    font-size: 30px;
+    margin: .5em 0 .25em;
     font-weight: 700;
     @include respond($laptop) {
-      font-size: 16px;
+      @include resp-font(30px, 20px, $laptop, $mobile);
+    }
+    @include respond($mobile) {
+      margin: 0 0 0.25em 0;
+      @include resp-font(20px, 16px, $mobile, 320px);
     }
     @include respond($tablet) {
       font-size: 30px;
@@ -750,179 +663,101 @@ a {
 
   &-text {
     font-size: 18px;
-    @include respond($laptop) {
+    @include respond($tablet) {
       font-size: 16px;
     }
-    @include respond($tablet) {
-      font-size: 20px;
-    }
     @include respond($mobile) {
-      font-size: 18px;
+      @include resp-font(18px, 16px, $mobile, 320px);
     }
   }
 }
 
 .whyus {
-  padding-right: 5px;
-  padding-left: 5px;
-  margin-bottom: 60px;
+  margin: 10vh auto;
 
   &-wrap {
     display: flex;
-    box-shadow: 0 3px 10px 0 rgb(0 0 0 / 10%);
-    border-radius: 10px;
-    @include respond($tablet) {
-      margin-left: 10px;
-      margin-right: 10px;
-      flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    @include respond($laptop) {
+      flex-direction: column;
     }
   }
 
   &-title {
-    display: flex;
-    flex-direction: column;
-    font-size: 36px;
-    font-weight: 800;
-    gap: 20px;
-    padding-top: 30px;
-    padding-bottom: 10px;
-
-    @include respond($desktop) {
-      font-size: 30px;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: .5em;
+    @include respond($mobile) {
+      @include resp-font(32px, 24px, $mobile, 320px);
     }
-    @include respond($laptop) {
-      font-size: 24px;
-    }
-    @include respond($tablet) {
-      padding-bottom: 5%;
-    }
-
-
   }
 
   &-content {
-    justify-content: center;
-    width: 60%;
-    margin-left: auto;
-    padding-left: 71px;
-    padding-right: 71px;
-    @include respond($tablet) {
-      width: 100%;
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-  }
-
-  &-edges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    padding-bottom: 10%;
-
-    @include respond($desktop) {
-      gap: 40px;
-    }
+    padding: 35px;
+    height: 100%;
+    width: calc(80% - 400px);
+    border-radius: 25px 0 0 25px;
     @include respond($laptop) {
-      flex-direction: column;
-      gap: 30px;
+      width: 100%;
+      border-radius: 25px;
+      padding-bottom: 180px;
     }
     @include respond($tablet) {
-      padding-bottom: 5%;
+      padding: 15px 15px 180px 15px;
     }
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 7%);
   }
+
 
   &-edge {
-    width: 90%;
-    display: flex;
-    gap: 10px;
-
-
-    /*&:hover {
-      transform: translatey(-5px);
-      transition: 0.3s;
-
-      .whyus-edge-icon {
-        color: $main-color;
-        transition: 0.3s;
-      }*/
     &-links {
+      margin-top: 1em;
+
       a {
         font-weight: 300;
         color: #000;
       }
 
       li {
-        line-height: 1.5;
+        & + & {
+          margin-top: 1em;
+        }
 
         :after {
           font-family: 'icomoon';
           content: '\e9c7';
           font-size: 16px;
-          color: gray;
-          //visibility: hidden;
+          color: $main-color;
           margin-left: 5px;
-
         }
 
         :hover {
-          border-bottom: solid 1px;
-
-          &:after {
-            //visibility: visible;
-          }
+          border-bottom: solid 1px $main-color;
         }
-      }
-    }
 
-    @include respond($laptop) {
-      width: 100%;
-
-    }
-    @include respond($tablet) {
-      flex-direction: column;
-      align-items: center;
-
-    }
-
-    &-wrap {
-      display: flex;
-      flex-direction: column;
-
-    }
-
-    &-icon {
-      font-size: 40px;
-      padding-top: 10px;
-      color: $secondary-color;
-      transition: 0.3s;
-    }
-
-    &-title {
-      font-size: 22px;
-      font-weight: 700;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      @include respond($tablet) {
-        font-size: 18px;
+        @include respond($mobile) {
+          font-size: 14px;
+        }
       }
     }
 
     &-text {
-      font-size: 18px;
-      @include respond($tablet) {
-        font-size: 20px;
+      font-size: 16px;
+      @include respond($mobile) {
+        font-size: 14px;
       }
     }
   }
 
   &-form {
-
     &-wrap {
-      width: 40%;
-      @include respond($tablet) {
-
+      width: 430px;
+      flex: 0 0 auto;
+      @include respond($laptop) {
         width: 100%;
-        margin-bottom: 30px;
+        max-width: 600px;
+        margin-top: -150px;
       }
     }
   }
@@ -930,97 +765,94 @@ a {
 
 .howitworks {
   margin-top: 60px;
-  margin-bottom: 60px;
-
-
-  &-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-left: .5em;
-    padding-right: .5em;
-
-  }
+  margin-bottom: 10vh;
 
   &-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
     text-align: center;
-    width: 50%;
-    margin-bottom: 3em;
-    @include respond($laptop) {
-      width: 100%;
+    max-width: 600px;
+    margin: 0 auto 3em auto;
+
+    div + div {
+      margin-top: 1em;
     }
 
     &-title {
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 600;
-
+      @include respond($mobile) {
+        @include resp-font(32px, 26px, $mobile, 320px);
+        margin-bottom: 1em;
+      }
     }
 
     &-text {
       font-size: 16px;
-
+      @include respond($mobile) {
+        font-size: 14px;
+      }
+      line-height: 1.5;
     }
   }
 
   &-content {
+    margin-top: .75em;
+    font-size: 45px;
     text-align: center;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 7%);
+    padding: 0 15px 15px 15px;
+    transition: .5s ease-in-out;
 
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    //width: 33%;
     &:hover {
+      transform: translateY(-20px);
 
-      .icon__square {
-        transition: .3s;
-        background-color: $main-color;
-
+      .howitworks__icon {
+        transform: rotate(315deg) scale(1.15);
       }
-
-      .icon__content {
-
-        transform: rotate(315deg) scale(1.1);
-        color: $light-color;
-        font-size: 50px;
-        padding: 0.5em;
-        transition: .3s;
-      }
-    }
-
-    @include respond($laptop) {
-      font-size: 8px;
     }
 
     &-wrap {
       display: flex;
-      //flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
-      gap: 1em;
-      @include respond($laptop) {
-        flex-direction: column;
-        gap: 2em;
-      }
-
+      gap: 1.5em;
     }
 
-    &-image {
-      img {
-        width: 100px;
+    @include respond($laptop) {
+      &-wrap {
+        flex-wrap: wrap;
+        gap: 0;
       }
+      width: 48%;
+      max-width: 350px;
+      margin: 1em 1%;
+      font-size: 40px;
+    }
+    @include respond($mobile) {
+      width: 100%;
+      max-width: 400px;
+      font-size: 36px;
     }
 
     &-title {
-      font-size: 24px;
-      font-weight: 700;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: .8em;
+      height: 2.4em;
+      line-height: 1.2;
+      @include respond($laptop) {
+        height: auto;
+      }
+      @include respond($mobile) {
+        font-size: 18px;
+      }
     }
 
     &-text {
-      font-size: 20px;
-
+      font-size: 16px;
+      @include respond($mobile) {
+        font-size: 14px;
+      }
     }
   }
 }
@@ -1032,104 +864,140 @@ a {
   left: 0;
   z-index: 2;
   width: 100%;
-  transform: translate(0px, 0px);
-  transition: 0.3s;
 
-  &.slide {
-    transform: translate(0px, -260px);
-    transition: 0.3s;
-  }
-
-  &.scrolled {
-    transform: translate(0px, 0px);
-    transition: 0.3s;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    color: $light-color;
-  }
-
-  // background-color: black;
-  &-socialslinks {
-    &-wrap {
-      display: flex;
-      align-items: center;
-
-      width: 100%;
-      flex-direction: row-reverse;
-      @include respond($tablet) {
-        flex-direction: row;
-        width: 100%;
-      }
+  &__top {
+    background: #000;
+    color: #fff;
+    font-size: 16px;
+    padding: .5em 0;
+    @include respond($mobile) {
+      font-size: 14px;
     }
   }
 
   &-socials {
     display: flex;
-    gap: 10px;
-    font-size: 30px;
+    gap: 1em;
     align-items: center;
 
-    @include respond($tablet) {
-      font-size: 40px;
-      margin-right: auto;
-
+    a:hover {
+      color: #fff;
     }
-
 
     &-icon {
       display: flex;
       align-items: flex-end;
+    }
+  }
 
+  &-phone {
+    margin-right: 1em;
 
+    a {
+      gap: .25em;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    span {
+      @include respond($mobile) {
+        display: none;
+      }
+    }
+
+    &:before {
+      padding-right: 10px;
+      @include respond($tablet) {
+        padding-right: 0;
+      }
     }
   }
 
   &-wrap {
-    gap: 10px;
-    display: flex;
-    align-items: center;
-    height: 90px;
-    padding-left: .5em;
-    padding-right: .5em;
+    .mw {
+      height: 100%;
+    }
+
+    &.scrolled, &.mobile {
+      transform: translate(0px, 0px);
+      transition: 0.3s;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      color: $light-color;
+    }
+
+    &.mobile {
+      background: #000;
+    }
+
+    height: 80px;
+    @include respond(900px) {
+      height: 60px;
+    }
   }
 
   &-menu {
-    margin-right: auto;
     @include respond($tablet) {
       position: relative;
       margin-right: 0;
     }
 
     &-links {
-      font-family: "SFProDisplay", sans-serif;
       display: flex;
-      gap: 10px;
-      font-size: 18px;
-
-      color: $light-color;
+      gap: 1em;
+      font-size: 20px;
+      @include respond($desktop) {
+        @include resp-font(20px, 16px, $desktop, $tablet);
+        gap: .5em;
+      }
+      font-weight: 500;
+      color: #fff;
       align-items: center;
 
+      a {
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+        padding: .2em .4em;
+        border-radius: 10px;
+      }
+
+      a:hover, .current-menu-item a {
+        background-color: #fff;
+        color: $main-color;
+      }
+
       @include respond($tablet) {
-        font-size: 36px;
+        a:hover, .current-menu-item a {
+          background: transparent;
+          color: #fff;
+        }
+      }
+
+      @include respond($tablet) {
+        font-size: 28px;
         display: none;
         overflow-y: auto;
         justify-content: space-evenly;
         flex-direction: column;
         position: fixed;
-        top: 90px;
+        height: calc(100vh - 60px);
+        top: 60px;
         right: 0;
         background: $secondary-color;
         z-index: 11;
         width: 100vw;
-        height: 70vh;
         transition: .3s;
         transform: translateX(100%);
         a {
-
           border-bottom: 2px solid $main-color;
         }
       }
@@ -1147,185 +1015,127 @@ a {
     }
   }
 
-  &-phone {
-
-    @include respond($tablet) {
-      margin-left: auto;
-    }
-
-    a {
-
-      transition: .3s;
-      font-size: 20px;
-      display: flex;
-      align-items: center;
-
-      @include respond($tablet) {
-        font-size: 18px;
-      }
-
-    }
-
-    span {
-      @include respond($mobile) {
-        display: none;
-      }
-    }
-
-
-    :before {
-      padding-right: 10px;
-      font-size: 30px;
-      @include respond($tablet) {
-        font-size: 40px;
-        padding-right: 0;
-      }
-
-    }
-
-  }
-
   &-logo {
-    img {
+    display: block;
+    height: 40%;
 
-      width: 120px;
-      @include respond(400px) {
-        width: 95px;
-      }
+    img {
+      height: 100%;
     }
   }
 }
 
 .headermedia {
-  background-image: url("../images/underfooter-bg.webp");
-  //height: calc(100vh);
-  //margin-top: -91px;
-  //padding-top: 91px;
-  background-color: rgb(1, 1, 1, 0.4);
+  background-image: url("../images/header-bg.webp");
+  background-color: rgb(10 15 42 / 44%);
+  background-size: cover;
+  background-position: center;
   background-blend-mode: darken;
-
 
   .scrolled {
     margin-top: 0;
     padding-top: 0;
   }
 
-
-  &-preview {
-    display: flex;
-    flex-direction: column;
-
-    gap: 1.5em;
-    //height: 25%;
-    padding: 2em;
-    color: $light-color;
-    backdrop-filter: blur(2px) brightness(60%);
-    cursor: default;
-    border: 0px solid transparent;
-    border-radius: 8px;
-    box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3);
-
+  &-info {
     &-wrap {
       display: flex;
-      align-items: flex-start;
-      width: 40%;
-      padding-top: 5%;
-      padding-left: 5%;
+      align-items: center;
+      padding-top: 80px;
+      @include respond(900px) {
+        padding-top: 60px;
+      }
       @include respond($tablet) {
-        width: 100%;
-        padding-right: 5%;
+        flex-direction: column;
       }
     }
   }
 
-  &-info {
+  &-preview {
+    padding: 2em;
+    color: $light-color;
+    backdrop-filter: blur(10px) brightness(60%);
+    background: rgba($main-color, .2);
+    border-radius: 15px;
+    @include respond($tablet) {
+      padding: 7vw 5vw;
+    }
+
     &-wrap {
-
-      padding-top: 91px;
-      display: flex;
-
-      //flex-direction: column;
+      margin-left: 3%;
+      width: 47%;
+      max-width: 490px;
       @include respond($tablet) {
-        flex-direction: column;
+        margin: 40px 0 0 0;
+        width: 100%;
+        max-width: 600px;
       }
-
     }
   }
 
   &-form {
-
-
     &-wrap {
-      display: flex;
-      align-items: flex-end;
+      margin: 100px 0;
       margin-left: auto;
-      padding-top: 5%;
-      padding-right: 5%;
-      padding-bottom: 5%;
-      @include respond($laptop) {
-        padding-right: 5%;
+      @include respond($desktop) {
+        margin: 6vw auto;
       }
       @include respond($tablet) {
-        justify-content: center;
-        padding-left: 5%;
-        margin-left: 0;
+        margin: 40px 0 60px;
       }
     }
   }
 
   &-text {
-    font-size: 24px;
-    @include respond($desktop) {
-      @include resp-font(24px, 20px, $desktop, $laptop,);
-    }
-
+    font-size: 20px;
+    line-height: 1.5;
     @include respond($laptop) {
-      @include resp-font(20px, 18px, $desktop, $tablet,);
+      @include resp-font(20px, 18px, $desktop, $tablet);
     }
-
-    @include respond($mobile) {
-      font-size: 18px;
+    @include respond($tablet) {
+      @include resp-font(18px, 15px, $tablet, 320px);
     }
   }
 
   &-title {
-    font-size: 36px;
+    font-size: 32px;
+    margin-bottom: 1em;
     font-weight: 800;
     @include respond($desktop) {
-      @include resp-font(36px, 28px, $desktop, $laptop,);
+      @include resp-font(32px, 24px, $desktop, $tablet);
     }
-    @include respond($laptop) {
-      @include resp-font(28px, 22px, $desktop, $tablet,);
-    }
-    @include respond($mobile) {
-      font-size: 26px;
+    @include respond($tablet) {
+      @include resp-font(32px, 22px, $tablet, 320px);
     }
   }
 }
 
 .contactform {
-
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
   background: $light-color;
   align-items: center;
   padding: 30px;
-  border: 0px solid transparent;
   border-radius: 8px;
-  box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 5px 2px rgba(0, 0, 0, 0.3);
 
   &.onwhyus {
     &-form {
-      border-radius: 0 10px 10px 0px;
+      border-radius: 10px;
       box-shadow: none;
-      background-image: url("../images/features.jpeg");
+      background-image: url("../images/contactform.jpg");
       background-size: cover;
       background-position: center center;
-      background-color: rgb(1, 1, 1, 0.4);
+      background-color: rgb(10 15 42 / 35%);
       background-blend-mode: darken;
-      @include respond($tablet) {
-        border-radius: 10px 10px 0px 0px;
+
+      .contactform-form {
+        backdrop-filter: blur(5px);
+        @include respond($mobile) {
+          margin: 1em 0;
+        }
+      }
+
+      .contactform-title {
+        color: #fff;
       }
     }
 
@@ -1335,27 +1145,21 @@ a {
   }
 
   .message {
-    //padding: 15px 15px 60px 15px
     min-height: 100px;
     resize: none;
-    @include respond($desktop) {
-      padding-bottom: 25%;
-    }
-    @include respond($laptop) {
-      padding-bottom: 40%;
-    }
-    @include respond(800px) {
-      padding-bottom: 50%;
-    }
-    @include respond($tablet) {
-      padding-bottom: 0;
-    }
+    height: 100px;
   }
 
   &-title {
     font-size: 30px;
+    @include respond($laptop) {
+      @include resp-font(30px, 26px, $laptop, $tablet);
+    }
+    @include respond($tablet) {
+      @include resp-font(30px, 22px, $tablet, 320px);
+    }
+    margin-bottom: 1.35em;
     font-weight: 700;
-
   }
 
   &-label {
@@ -1368,7 +1172,8 @@ a {
     text-transform: uppercase;
     padding-left: 5px;
     padding-right: 5px;
-    color: #bfc4d5;
+    color: rgba($main-color, 1);
+    font-weight: 300;
 
     &.onwhyus {
 
@@ -1380,7 +1185,7 @@ a {
 
   &-input {
     border-radius: 10px;
-    border: solid 1px #e2eff4;
+    border: solid 1px $main-color;
     outline: none;
     padding: 15px;
     width: 100%;
@@ -1412,28 +1217,28 @@ a {
   &-form {
     position: relative;
     width: 100%;
+    margin: 2em 0;
 
     &-submit {
-
       margin-right: auto;
 
-      button {
-        color: $light-color;
+      &-button {
+        cursor: pointer;
+        color: #fff;
         font-size: 16px;
-        border: 2px solid $secondary-color;
-        border-radius: 5px;
+        border: 1px solid $main-color;
+        border-radius: 8px;
         padding: 11px 20px;
-        background-color: $secondary-color;
-        transition: 0.3s;
+        background-color: $main-color;
+        transition: 0.4s ease-in;
 
         &:hover {
           transition: 0.3s;
-          background-color: $main-color;
-          box-shadow: 0px 3px 9px rgba(46, 229, 157, 0.4);
-          color: #000;
+          background-color: #fff;
+          box-shadow: 0 5px 8px rgba(#000, 0.25);
           transform: translateY(-3px);
+          color: #000;
           border-color: $main-color;
-
         }
 
         &:focus {
@@ -1445,50 +1250,247 @@ a {
   }
 }
 
-.extrafooter {
-  &-link {
-    &:hover {
+.tariff {
+  &-popup{
+    display: none;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    &.active{
+      display: block;
+      @include respond($tablet){
+        width: 70%;
+      }
+      @include respond($mobile){
+        width: 90%;
+      }
+    }
+  }
+  &-no{
+    font-weight: 900;
+  }
+  &-yes{
+    color: $secondary-color;
+  }
+  &-grid{
+    margin-top: 2em;
+  display: grid;
+  grid-template-columns: 1fr 25% 25%;
+    @include respond(800px){
+      grid-template-columns: 1fr 20% 20%;
+    }
+    @include respond(680px){
+      grid-template-columns: 1fr 15% 15%;
+    }
+    @include respond(400px){
+      grid-template-columns: 1fr 13% 13%;
+    }
+  }
+
+&-title{
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+}
+  &-pretitle{
+    font-weight: 300;
+    margin-bottom: 1em;
+    font-size: 20px;
+    text-align: center;
+  }
+  &-point {
+    display: flex;
+    flex-direction: column;
+
+
+    div {
+
+      padding: 10px;
+      height: 40px;
+      max-height: 40px;
+      display: flex;
+      justify-content: center;
+      border: 1px solid rgba(0,0,0,.1);
+border-top: none;
+      border-left: none;
+      border-right: none;
+
+      &:nth-child(1) {
+        border-top: 1px solid rgba(0,0,0,.1);
+      }
+      &:nth-last-child(1){
+      border-bottom: none;
+    }
+      @include respond(580px){
+        max-height: 50px;
+        height: 50px;
+      }
 
     }
   }
 
-  background-color: #101010;
+  &-desc {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      height: 39px;
+      border-right: 1px solid rgba(0,0,0,.1);
+      @include respond(680px){
+        height: 40px;
+      }
+    }
+
+    div {
+      padding: 10px;
+      max-height: 40px;
+      display: flex;
+      justify-content: center;
+      border: 1px solid rgba(0,0,0,.1);
+
+      border-top: none;
+      border-left: none;
+
+      &:nth-child(1) {
+        border: none;
+      }
+
+      &:nth-last-child(1) {
+        border-bottom: none;
+      }
+      @include respond(580px){
+        max-height: 50px;
+height: 50px;
+        justify-content: start;
+      }
+      @include respond(400px){
+        font-size: 16px;
+      }
+
+    }
+  }
+
+  &-fift {
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    border: 1px solid rgba(0,0,0,.1);
+    border-left: none;
+    padding: 10px;
+    max-height: 40px;
+    border-bottom: none;
+    border-top: none;
+    @include respond(680px){
+      font-size: 18px;
+    }
+    span{
+      @include respond(680px){
+        display: none;
+      }
+    }
+  }
+
+  &-twent {
+
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+
+    padding: 10px;
+    max-height: 40px;
+    border: 1px solid rgba(0,0,0,.1);
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    @include respond(680px){
+      font-size: 18px;
+    }
+    span{
+      @include respond(680px){
+        display: none;
+      }
+    }
+  }
+  &-borders{
+    border-right:  1px solid rgba(0,0,0,.1);
+  }
+  &-btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+  }
+  &-button {
+
+    width: 150px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    border: 1px solid $main-color;
+    border-radius: 8px;
+    padding: 11px 20px;
+    background-color: $main-color;
+    transition: 0.4s ease-in;
+
+    &:hover {
+      transition: 0.3s;
+      background-color: #fff;
+      box-shadow: 0 5px 8px rgba(#000, 0.25);
+      transform: translateY(-3px);
+      color: #000;
+      border-color: $main-color;
+    }
+
+    &:focus {
+      box-shadow: none;
+      transform: none;
+    }
+  }
+}
+
+.extrafooter {
+  background-color: #151515;
   color: $light-color;
   font-size: 14px;
 
   & > div {
-    padding: 10px;
+    padding: 12px;
     display: flex;
 
     & > :nth-child(2) {
       margin-right: auto;
     }
 
-
+    @include respond($mobile) {
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      span {
+        margin: 5px 0 !important;
+      }
+    }
   }
 }
 
-.icon {
-  &__square {
-    transform: rotate(45deg);
+.howitworks__icon {
+  &-wrap {
+    transform: translateY(-50%) rotate(45deg);
     background-color: $secondary-color;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: .65em;
     border: 3px solid $secondary-color;
     display: inline-block;
     color: #818a91;
     text-align: center;
-    margin-bottom: 1.5em;
-    transition: .3s;
-
-  }
-
-  &__content {
-    transform: rotate(315deg);
-    color: $light-color;
-    font-size: 50px;
-    padding: 0.5em;
+    margin-bottom: -75em;
     transition: .3s;
   }
+
+  color: #fff;
+  transition: .5s ease-in-out;
+  transform: rotate(315deg);
+  padding: .5em;
 }
 
 .scrollup {
@@ -1525,7 +1527,7 @@ a {
     display: block;
     width: 34px;
     height: 4px;
-    background: $secondary-color;
+    background: #fff;
     position: relative;
 
     &::before, &::after {
@@ -1599,4 +1601,20 @@ a {
   }
 
 
+}
+
+.cf7-wrap {
+  max-width: 360px;
+}
+
+.wpcf7-response-output {
+  background: #fff;
+}
+.popup-close {
+position: absolute;
+  top:5px;
+  right: 5px;
+  cursor: pointer;
+  font-size: 30px;
+  color: $secondary-color;
 }

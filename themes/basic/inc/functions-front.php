@@ -4,7 +4,6 @@ function basic_scripts()
 {
     $assets_version = '1.0.2';
     wp_enqueue_style('basic-style', get_stylesheet_uri(), array(), $assets_version);
-
     wp_enqueue_style('main-style', get_template_directory_uri() . '/inc/css/style.css', array(), $assets_version);
     wp_enqueue_script('main-script', get_template_directory_uri() . '/inc/js/script.js', array('jquery'), $assets_version, true);
     wp_enqueue_script('lazy-load', get_template_directory_uri() . '/inc/js/jquery.lazy.min.js', array('jquery'), $assets_version, true);
