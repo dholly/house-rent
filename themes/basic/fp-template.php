@@ -30,7 +30,7 @@ $args = [
             'description'=>'Проведем быстрый ремонт и будем поддерживать вашу в квартиру в пригодном состоянии'
         ],
         [
-            'img'=>get_template_directory_uri().'/inc/images/features1.png',
+            'img'=>get_template_directory_uri().'/inc/images/features1.png', 
             'title'=>'Банные принадлежности',
             'description'=>'Мы закупим и пополним средства личной гигиены в вашей квартире'
         ],
